@@ -17,7 +17,6 @@ class MongoBackend {
     static async insert(obj) {
         const collection = await this.getCollection();
         const { result } = await collection.insert(obj);
-        console.log(result);
         return result;
     };
     
@@ -30,6 +29,15 @@ class MongoBackend {
         console.log(users);
         return users;
     };
+
+    static async count(query) {
+        const collection = await this.getCollection();
+        if (!query) {
+            query = {};
+        }
+        const count = await collection.countDocuments(query);
+        return count;
+    };
     
     static async delete(query) {
         const collection = await this.getCollection();
@@ -37,7 +45,15 @@ class MongoBackend {
             query = {};
         }
         const { result }  = await collection.deleteOne(query);
-        console.log(result);
+        return result;
+    }
+
+    static async deleteMany(query) {
+        const collection = await this.getCollection();
+        if (!query) {
+            query = {};
+        }
+        const { result }  = await collection.deleteMany(query);
         return result;
     }
 
@@ -47,7 +63,6 @@ class MongoBackend {
             query = {};
         }
         const { result }  = await collection.updateOne(query, newObj);
-        console.log(result);
         return result;
     }
 

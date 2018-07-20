@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./node_modules/nodemon/bin/nodemon.js index.js"
+    "test": "mocha --exit",
+    "start": "nodemon"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "mongodb": "^3.1.1"
   },
   "devDependencies": {
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.3"
   }
 }

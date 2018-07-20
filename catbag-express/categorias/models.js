@@ -12,6 +12,18 @@ class Produto extends MongoBackend {
         this.preco = preco;
     }
 
+    static async insert(obj) {
+        if (!obj.nome || !obj.preco || obj.preco < 0) {
+            return false;
+        }
+        const count = await this.count({nome: obj.nome});
+        if(count > 0) {
+            return false;
+        }
+        const result = super.insert(obj);
+        return result;
+    };
+
     static getCollectionName() {
         return "Produto";
     }
