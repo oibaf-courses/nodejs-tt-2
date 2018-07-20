@@ -10,6 +10,12 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}\\express-mongoose-paises\\index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "book-api",
+            "program": "${workspaceFolder}\\book-api\\index.js"
         }
     ]
 }
