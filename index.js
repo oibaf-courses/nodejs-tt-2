@@ -19,6 +19,6 @@ app.get('/', (req, res) => {
 
 app.use('/books', books.router);
 
-app.listen(process.env.APP_PORT || 8080, process.env.APP_ADDR || 'localhost', () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log('book-api runnning at here');
 });
